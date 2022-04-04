@@ -1,0 +1,375 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url("./assets/images/bg.jpg");
+  background-position: top right;
+  background-size: cover;
+  //   overflow: hidden;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  height: 100vh;
+  position: relative;
+  width: 100vw;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  align-content: space-around;
+  gap: 10vmin;
+
+  //   border: 2px solid red;
+  .game-board {
+    display: grid;
+    grid-auto-flow: column;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: flex-start;
+    width: 100vw;
+    height: fit-content;
+
+    .timer-wrapper {
+      display: grid;
+      justify-items: center;
+      align-content: center;
+      gap: 5vmin;
+      .timer {
+        height: 15vmin;
+        width: 15vmin;
+        place-content: center;
+        display: grid;
+        font-size: 5vmin;
+        font-family: fantasy;
+        background: url("./assets/images/wooden.jpg");
+        border-radius: 50%;
+        transition: all 0.1s;
+      }
+      button {
+        position: relative;
+        border: none;
+        background-color: tomato;
+        padding: 1vmin 2vmin;
+        border-radius: 1vmin;
+        font-size: clamp(12px, 2.5vmin, 2.5vmin);
+        cursor: pointer;
+      }
+
+      .tick {
+        transition: all 0.1s;
+        font-size: 7vmin;
+      }
+    }
+
+    .answer {
+      position: relative;
+      display: grid;
+      align-content: flex-end;
+      justify-items: center;
+      height: 25vmin;
+      width: 40vmin;
+      border-radius: 2vmin;
+      background: url("./assets/images/wordsbg.webp");
+      background-size: cover;
+      padding: 2vmin;
+      gap: 3vmin;
+      h1 {
+        font-size: 3.5vmin;
+      }
+      p {
+        font-size: 3vmin;
+        font-weight: bold;
+      }
+    }
+
+    .user {
+      height: fit-content;
+      width: fit-content;
+      background-color: tomato;
+      border-radius: 2vmin;
+      display: grid;
+      padding: 2vmin;
+      gap: 2vmin;
+
+      p {
+        height: 5vmin;
+        width: 100%;
+        display: grid;
+        place-content: center;
+        font-weight: 600;
+        font-size: 3vmin;
+        padding: 5px;
+        background-color: wheat;
+        border-radius: 1vmin;
+        overflow: hidden;
+      }
+
+      .score-wrapper {
+        display: flex;
+        gap: 2vmin;
+        .score {
+          height: 14vmin;
+          width: 14vmin;
+          background: url("./assets/images/wooden.jpg");
+          margin: auto;
+          border-radius: 1vmin;
+          display: grid;
+          place-content: center;
+          font-family: fantasy;
+          font-size: 6vmin;
+          letter-spacing: 0.5vmin;
+          padding: 1vmin;
+
+          &.correct {
+            color: darkred;
+          }
+          &.wrong {
+            color: yellowgreen;
+          }
+        }
+        @media (max-width: 1200px) {
+          display: grid;
+        }
+      }
+    }
+  }
+
+  .random {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 60vw;
+    min-width: 300px;
+    gap: 5vmin 3vmin;
+
+    .letter {
+      height: clamp(35px, 6vmin, 6vmin);
+      width: clamp(35px, 6vmin, 6vmin);
+      border-radius: 1vmin;
+      box-shadow: 0 0 10px black;
+      color: white;
+      font-size: clamp(17px, 3vmin, 3vmin);
+      color: black;
+      display: grid;
+      justify-content: center;
+      align-content: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 600;
+
+      &:nth-child(2n -1) {
+        transform: perspective(100px) rotateX(15deg);
+        background-color: blueviolet;
+        transform-origin: top;
+      }
+      &:nth-child(2n) {
+        transform-origin: bottom;
+        transform: perspective(100px) rotateX(-15deg);
+        background-color: gold;
+      }
+      &:nth-child(3n) {
+        background-color: cyan;
+      }
+      &:nth-child(4n) {
+        background-color: crimson;
+      }
+      &:nth-child(5n) {
+        background-color: coral;
+      }
+      &:nth-child(7n) {
+        background-color: cornflowerblue;
+      }
+    }
+  }
+
+  .type {
+    height: 6vh;
+    width: 35vw;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 0 10px 1px rgba($color: #000000, $alpha: 0.4);
+    overflow: hidden;
+    border-radius: 1vmin;
+
+    input {
+      height: 100%;
+      width: 100%;
+      background: url("./assets/images/wooden.jpg");
+      border: none;
+      color: black;
+      appearance: none;
+      text-align: center;
+      outline: none;
+      font-size: clamp(20px, 4vmin, 4vmin);
+      text-transform: uppercase;
+    }
+
+    button {
+      border: none;
+      background: none;
+      position: absolute;
+      right: 4%;
+      transform-origin: center;
+      color: rgb(3, 164, 192);
+      font-size: clamp(30px, 4vmin, 4vmin);
+      height: 6vmin;
+      width: 6vmin;
+      display: grid;
+      place-content: center;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .ripple {
+      position: absolute;
+      z-index: 1;
+      &::before {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        top: 25%;
+        left: 25%;
+        width: 50%;
+        height: 50%;
+        transition: 0.5s;
+        z-index: -1;
+        animation: animate 1.5s linear infinite;
+      }
+      @keyframes animate {
+        from {
+          transform: scale(1);
+          background: rgba(3, 164, 192, 0.6);
+        }
+        to {
+          transform: scale(2.5);
+          background: rgba(3, 164, 192, 0.05);
+        }
+      }
+    }
+  }
+}
+
+.outer {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  &.close {
+    display: none;
+  }
+  .inner {
+    height: 40vmin;
+    width: 60vmin;
+    min-width: 300px;
+    min-height: 200px;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: 5vmin;
+    border-radius: 1vmin;
+    background: url("./assets/images/wooden.jpg");
+    box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.5),
+      inset 5px 5px 5px 2px rgba(255, 255, 255, 0.5),
+      2px 2px 5px rgba(255, 255, 255, 0.3),
+      inset -5px -5px 10px rgba(0, 0, 0, 0.5);
+    padding: 5vmin;
+
+    input {
+      border: none;
+      outline: none;
+      width: 50%;
+      height: 6vmin;
+      min-height: 30px;
+      border-radius: 1vmin;
+      box-shadow: inset 0 0 3px 2px rgba(0, 0, 0, 0.3);
+      font-size: 3.5vmin;
+      padding: 1vmin;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .submit {
+      border: none;
+      background-color: tomato;
+      border-radius: 1vmin;
+      font-size: 2.5vmin;
+      padding: 1.5vmin;
+      box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+    }
+
+    p {
+      font-size: 4vmin;
+    }
+  }
+}
+
+.over {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+
+  &.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .gameover {
+    height: 40vmin;
+    width: 60vmin;
+    min-width: 300px;
+    min-height: 200px;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: 5vmin;
+    border-radius: 1vmin;
+    background: url("./assets/images/wooden.jpg");
+    box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.5),
+      inset 5px 5px 5px 2px rgba(255, 255, 255, 0.5),
+      2px 2px 5px rgba(255, 255, 255, 0.3),
+      inset -5px -5px 10px rgba(0, 0, 0, 0.5);
+
+    h3 {
+      font-size: 6vmin;
+    }
+
+    p {
+      font-size: 4vmin;
+    }
+
+    button {
+      border: none;
+      background-color: tomato;
+      border-radius: 1vmin;
+      font-size: clamp(16px, 3vmin, 3vmin);
+      padding: 1.5vmin 2vmin;
+      box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+    }
+
+    .currentscore {
+      font-size: 30px;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logophiles | Made by Shuvo</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./src/style.scss" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="game-board">
+        <div class="timer-wrapper">
+          <div class="timer">15</div>
+          <button class="start">Start</button>
+        </div>
+
+        <div class="answer">
+          <h1>Correct Answer</h1>
+          <p></p>
+        </div>
+
+        <div class="user">
+          <p>H M Shuvo</p>
+
+          <div class="score-wrapper">
+            <div class="score correct">00</div>
+            <div class="score wrong">00</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="random"></div>
+
+      <div class="type">
+        <input type="text" placeholder="Type Here" />
+        <button>
+          <i class="fa fa-microphone"></i>
+        </button>
+      </div>
+      <div class="over">
+        <div class="gameover">
+          <h3>Game Over!</h3>
+          <p class="currentscore"></p>
+          <button>Retry</button>
+        </div>
+      </div>
+      <div class="outer">
+        <div class="inner">
+          <p>Please Enter Your Name</p>
+          <input type="text" />
+          <button class="submit">SUBMIT</button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

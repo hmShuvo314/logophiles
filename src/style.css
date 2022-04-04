@@ -1,0 +1,378 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+body {
+  height: 100vh;
+  background: url("./assets/images/bg.jpg");
+  background-position: top right;
+  background-size: cover;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.type {
+  position: absolute;
+  bottom: 5vh;
+  height: 6vh;
+  width: 35vw;
+  min-width: 300px;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.type input {
+  /* border: 1px solid red; */
+  -webkit-appearance: none;
+  height: 100%;
+  width: 100%;
+  background: url("./assets/images/wooden.jpg");
+  border: none;
+  box-shadow: 0 0 20px black;
+  border-radius: 10px;
+  color: black;
+  appearance: none;
+  text-align: center;
+  outline: none;
+  font-size: clamp(30px, 4vmin, 4vmin);
+
+  text-transform: uppercase;
+}
+.type button {
+  border: none;
+  outline: none;
+  background: none;
+  position: absolute;
+  right: 3%;
+  transform-origin: center;
+}
+
+.type button .fa {
+  font-size: clamp(30px, 4vmin, 4vmin);
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(5px) scale(1);
+    background: rgba(3, 164, 192, 0.3);
+  }
+  50% {
+    transform: translateY(5px) scale(1.5);
+    background: rgba(3, 164, 192, 0.3);
+  }
+  75% {
+    transform: translateY(5px) scale(2);
+    background: rgba(3, 164, 192, 0.2);
+  }
+  100% {
+    transform: translateY(5px) scale(2.5);
+    background: rgba(3, 164, 192, 0);
+  }
+}
+.ripple {
+  position: relative;
+}
+.ripple:before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  width: 27px;
+  height: 27px;
+  background: rgba(3, 164, 192, 0.4);
+  transition: 0.5s;
+  /* background-color: black; */
+  transform: translateY(5px);
+  animation: animate 1.2s linear infinite;
+}
+
+.fa {
+  font-size: 40px;
+  color: rgb(3, 164, 192);
+}
+
+.answer {
+  position: relative;
+  display: grid;
+  align-content: flex-end;
+  justify-items: center;
+  height: 30vmin;
+  width: 50vmin;
+  border-radius: 2vmin;
+  background: url("./assets/images/wordsbg.webp");
+  background-size: cover;
+}
+
+.user {
+  position: relative;
+  height: fit-content;
+  width: fit-content;
+  background-color: tomato;
+  border-radius: 2vmin;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1vmin;
+  gap: 2vmin;
+  border: 1px solid red;
+  width: 40vmin;
+}
+
+@media (max-width: 1200px) {
+  .user {
+    display: grid;
+    gap: 5vmin;
+    width: fit-content;
+  }
+  .user p {
+    width: 100%;
+  }
+}
+
+.user p {
+  height: 5vmin;
+  margin: auto;
+  width: 40vmin;
+  text-align: center;
+  font-size: 4vmin;
+  border-radius: 10px;
+  background-color: wheat;
+  border-radius: 1vmin;
+}
+.user .score {
+  height: 10vmin;
+  width: 10vmin;
+  background: url("./assets/images/wooden.jpg");
+  margin: auto;
+  border-radius: 1vmin;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  font-family: fantasy;
+  font-size: 5vmin;
+  padding: 1vmin;
+}
+
+.answer h1 {
+  font-size: 5vmin;
+}
+
+.answer p {
+  margin: 10px;
+  font-size: 5vmin;
+  overflow: hidden;
+}
+.random {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  grid-gap: 10px;
+  /* border: 1px solid red; */
+  width: 50vw;
+  min-width: 280px;
+  gap: 4vmin 3vmin;
+}
+
+.letter {
+  height: clamp(40px, 7vmin, 7vmin);
+  width: clamp(40px, 7vmin, 7vmin);
+  border-radius: 1vmin;
+  box-shadow: 0 0 10px black;
+  color: white;
+  font-size: clamp(20px, 4vmin, 4vmin);
+  color: black;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.letter:nth-child(2n -1) {
+  transform: perspective(100px) rotateX(15deg);
+  background-color: blueviolet;
+  transform-origin: top;
+}
+.letter:nth-child(2n) {
+  transform-origin: bottom;
+  transform: perspective(100px) rotateX(-15deg);
+  background-color: gold;
+}
+.letter:nth-child(3n) {
+  background-color: cyan;
+}
+.letter:nth-child(4n) {
+  background-color: crimson;
+}
+.letter:nth-child(5n) {
+  background-color: coral;
+}
+.letter:nth-child(7n) {
+  background-color: cornflowerblue;
+}
+
+.outer {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* opacity: 0;
+  pointer-events: none; */
+}
+.inner {
+  transform: scale(0.9);
+  height: 50vh;
+  width: 50vw;
+  min-width: 300px;
+  position: relative;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  grid-gap: 20px;
+  border-radius: 20px;
+  background: url("./assets/images/wooden.jpg");
+  box-shadow: -5px -5px 10px black, inset 5px 5px 10px white, 5px 5px 10px white,
+    inset -5px -5px 10px black;
+}
+.inner input {
+  height: 100%;
+  width: 75%;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  box-shadow: inset 0 0 8px black;
+  font-size: 45px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.inner .submit {
+  height: 40px;
+  width: 80px;
+  border: none;
+  outline: none;
+  background-color: tomato;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+.inner p {
+  font-size: 23px;
+}
+
+.outer.close {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.over {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+}
+.user .correct {
+  color: green;
+}
+
+.user .wrong {
+  color: darkred;
+}
+.over.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.over .gameover {
+  transform: scale(0.9);
+  height: 300px;
+  width: 500px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  grid-gap: 20px;
+  font-size: 60px;
+  border-radius: 20px;
+  background: url("./assets/images/wooden.jpg");
+  box-shadow: -5px -5px 10px black, inset 5px 5px 10px white, 5px 5px 10px white,
+    inset -5px -5px 10px black;
+}
+
+.over .gameover button {
+  height: 40px;
+  width: 80px;
+  border: none;
+  outline: none;
+  background-color: tomato;
+  border-radius: 8px;
+  font-size: 22px;
+}
+
+.over .currentscore {
+  font-size: 30px;
+}
+
+.timer-wrapper {
+  position: relative;
+}
+
+.game-board {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  width: 100vw;
+  height: fit-content;
+  position: absolute;
+  top: 5vmin;
+  border: 2px solid red;
+}
+
+.start {
+  position: relative;
+  height: 40px;
+  width: 80px;
+  border: none;
+  outline: none;
+  background-color: tomato;
+  border-radius: 8px;
+  font-size: 22px;
+  transform: scale(0.9);
+}
+
+.timer {
+  position: relative;
+  height: 130px;
+  width: 130px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  font-size: 40px;
+  font-family: fantasy;
+  background: url("./assets/images/wooden.jpg");
+  border-radius: 50%;
+  transition: all 0.1s;
+}
+
+.timer.tick {
+  transition: all 0.1s;
+  font-size: 70px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
